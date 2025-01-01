@@ -1,0 +1,19 @@
+{
+	"welcome": "ወደ LegalShield እንኳን ደህና መጡ",
+	"tagline": "መብትዎን እና ማንነትዎን መጠበቅ",
+	"explorePackages": "ፓኬጆቻችንን ይመልከቱ",
+	"legalServices": "የሕግ አገልግሎቶች",
+	"legalServicesDesc": "ቅድሚያ የተከፈለ የሕግ አገልግሎት ፓኬጆች",
+	"legalServicesContent": "በተመጣጣኝ ዋጋ ሙያዊ የሕግ ምክር እና ውክልና ያግኙ።",
+	"idShield": "IDShield",
+	"idShieldDesc": "የማንነት ጥበቃ አገልግሎቶች",
+	"idShieldContent": "ሁሉን አቀፍ ክትትል እና የእርምት አገልግሎቶችን በመጠቀም ማንነትዎን ይጠብቁ።",
+	"privacyManagement": "የግላዊነት አያያዝ",
+	"privacyManagementDesc": "የስም እና የግላዊነት ጥበቃ",
+	"privacyManagementContent": "የመስመር ላይ ներክዎን ይቆጣጠሩ እና ዲጂታል ግላዊነትዎን ይጠብቁ።",
+	"packages": "ፓኬጆች",
+	"privacyAndReputation": "የግላዊነት እና ስም አያያዝ",
+	"training": "ስልጠና",
+	"signUp": "ይመዝገቡ",
+	"copyright": "© 2023 LegalShield። መብቱ በህግ የተጠበቀ ነው።"
+}
