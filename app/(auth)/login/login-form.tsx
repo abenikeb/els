@@ -61,25 +61,18 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 		setError(null);
 
 		try {
-			const response = await axios.post(
-				"https://package.ethiolegalshield.com/api/v1/auth/login",
-				{
-					email: values.email,
-					password: values.password,
-				}
-			);
+			const result = await signIn("credentials", {
+				email: values.email,
+				password: values.password,
+				redirect: false,
+			});
 
-			const { jwtToken } = response.data;
-
-			// Store the token in localStorage or a secure cookie
-			Cookies.set("jwtToken", jwtToken, { expires: 7 });
-			// localStorage.setItem("jwtToken", jwtToken);
-
-			// Set the token in the axios default headers for future requests
-			axios.defaults.headers.common["Authorization"] = `Bearer ${jwtToken}`;
-
-			// Redirect to the dashboard or home page
-			router.push("/");
+			if (result?.error) {
+				setError(t("login.invalidCredentials"));
+			} else {
+				router.push("/");
+				router.refresh();
+			}
 		} catch (error) {
 			console.error("Login error:", error);
 			setError(t("login.invalidCredentials"));

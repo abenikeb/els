@@ -1,7 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { getSession } from "next-auth/react";
 
-const axiosInstance = axios.create({
+const instance = axios.create({
 	baseURL: "/api/v1",
 	withCredentials: true,
 	headers: {
@@ -9,12 +10,11 @@ const axiosInstance = axios.create({
 	},
 });
 
-axiosInstance.interceptors.request.use(
-	(config) => {
-		// const token = localStorage.getItem("jwtToken");
-		const token = Cookies.get("jwtToken");
-		if (token) {
-			config.headers["Authorization"] = `Bearer ${token}`;
+instance.interceptors.request.use(
+	async (config) => {
+		const session: any = await getSession();
+		if (session?.user?.jwtToken) {
+			config.headers["Authorization"] = `Bearer ${session.user.jwtToken}`;
 		}
 		return config;
 	},
@@ -22,4 +22,4 @@ axiosInstance.interceptors.request.use(
 		return Promise.reject(error);
 	}
 );
-export default axiosInstance;
+export default instance;
