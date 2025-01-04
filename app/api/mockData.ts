@@ -9,16 +9,24 @@ export const staticText = {
 		},
 
 		signup: {
-			// Title for the signup page
-			title: "Signup",
-			roleLabel: "Select Role",
-			description: "Create a new account",
+			title: "Create an accounts",
+			description: "Enter your details to create your account",
+			firstNameLabel: "First Name",
+			firstNamePlaceholder: "John",
+			lastNameLabel: "Last Name",
+			lastNamePlaceholder: "Doe",
 			emailLabel: "Email",
+			emailPlaceholder: "john@example.com",
+			phoneLabel: "Phone Number",
+			phonePlaceholder: "0912345678",
 			passwordLabel: "Password",
+			passwordPlaceholder: "********",
 			confirmPasswordLabel: "Confirm Password",
-			submitButton: "Sign Up", // Button to submit signup form
-			loginPrompt: "Already have an account?", // Prompt for login
-			loginLink: "Log in", // Link to login page
+			confirmPasswordPlaceholder: "********",
+			submitButton: "Sign Up",
+			submitting: "Signing Up...",
+			loginPrompt: "Already have an account?",
+			loginLink: "Log in",
 			roleClient: "Client",
 			roleLawyer: "Lawyer",
 			roleAdmin: "Admin",
@@ -83,6 +91,7 @@ export const staticText = {
 				updateSuccess: "Password updated successfully",
 			},
 		},
+
 		navigation: {
 			about: "About Us",
 			terms: "Terms and Conditions",
@@ -92,14 +101,21 @@ export const staticText = {
 		},
 
 		login: {
-			// Title and labels for the login page
-			title: "Login",
-			description: "Sign in to your account",
+			title: "Welcome back",
+			description: "Enter your credentials to access your account",
 			emailLabel: "Email",
+			emailPlaceholder: "john@example.com",
 			passwordLabel: "Password",
-			submitButton: "Sign In", // Button to submit login form
-			signupPrompt: "Don't have an account?", // Prompt for signup
-			signupLink: "Sign up", // Link to signup page
+			passwordPlaceholder: "********",
+			rememberMe: "Remember me",
+			forgotPassword: "Forgot password?",
+			submitButton: "Sign In",
+			signingIn: "Signing In...",
+			signupPrompt: "Don't have an account?",
+			signupLink: "Sign up",
+			emailError: "Please enter a valid email address",
+			passwordError: "Password is required",
+			invalidCredentials: "Invalid email or password",
 		},
 
 		adminDashboard: {
@@ -263,18 +279,24 @@ export const staticText = {
 	},
 	am: {
 		signup: {
-			// Title for the signup page in Amharic
-			title: "Signup",
-			description: "አዲስ አካውንት ይፍጠሩ",
+			title: "መለያ ይፍጠሩ",
+			description: "መለያ ለመፍጠር ዝርዝሮችዎን ያስገቡ",
+			firstNameLabel: "ስም",
+			firstNamePlaceholder: "ጆን",
+			lastNameLabel: "የአባት ስም",
+			lastNamePlaceholder: "ዶ",
 			emailLabel: "ኢሜይል",
+			emailPlaceholder: "john@example.com",
+			phoneLabel: "ስልክ ቁጥር",
+			phonePlaceholder: "0912345678",
 			passwordLabel: "የይለፍ ቃል",
-			confirmPasswordLabel: "የይለፍ ቃልን ያረጋግጡ",
+			passwordPlaceholder: "********",
+			confirmPasswordLabel: "የይለፍ ቃል ያረጋግጡ",
+			confirmPasswordPlaceholder: "********",
 			submitButton: "ይመዝገቡ",
-			loginPrompt: "አካውንት አለዎት?",
-			loginLink: "ግባ",
-			roleClient: "Client",
-			roleLawyer: "Lawyer",
-			roleAdmin: "Admin",
+			submitting: "በመመዝገብ ላይ...",
+			loginPrompt: "አስቀድሞ መለያ አለዎት?",
+			loginLink: "ይግቡ",
 		},
 		profile: {
 			title: "Ibsa",
@@ -362,14 +384,21 @@ export const staticText = {
 		},
 
 		login: {
-			// Title and labels for the login page in Amharic
-			title: "ግባ",
-			description: "ወደ አካውንትዎ ይግቡ",
+			title: "እንኳን በደህና ተመለሱ",
+			description: "ወደ መለያዎ ለመግባት መረጃዎችዎን ያስገቡ",
 			emailLabel: "ኢሜይል",
+			emailPlaceholder: "john@example.com",
 			passwordLabel: "የይለፍ ቃል",
-			submitButton: "ግባ", // Button to submit login form in Amharic
-			signupPrompt: "አካውንት የለዎትም?", // Prompt for signup in Amharic
-			signupLink: "ተመዝገብ", // Link to signup page in Amharic
+			passwordPlaceholder: "********",
+			rememberMe: "አስታውሰኝ",
+			forgotPassword: "የይለፍ ቃል ረሱ?",
+			submitButton: "ግባ",
+			signingIn: "በመግባት ላይ...",
+			signupPrompt: "መለያ የለዎትም?",
+			signupLink: "ይመዝገቡ",
+			emailError: "እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ",
+			passwordError: "የይለፍ ቃል ያስፈልጋል",
+			invalidCredentials: "ልክ ያልሆነ ኢሜይል ወይም የይለፍ ቃል",
 		},
 		adminDashboard: {
 			title: "የአስተዳዳሪ ዳሽቦርድ",

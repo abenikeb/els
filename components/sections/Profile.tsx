@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Mail, Phone, Lock } from "lucide-react";
+import Cookies from "js-cookie";
 
 export default function Profile() {
 	const { t, language, apiData, getLocalizedApiData } = useLanguage();
@@ -35,7 +36,9 @@ export default function Profile() {
 
 	useEffect(() => {
 		// Check if user is logged in
-		const isLoggedIn = document.cookie.includes("session=authenticated");
+		// const isLoggedIn = document.cookie.includes("session=authenticated");
+		const isLoggedIn = Cookies.get("jwtToken");
+		console.log({ isLoggedIn });
 		if (!isLoggedIn) {
 			router.push("/login");
 		} else {

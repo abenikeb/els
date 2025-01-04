@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Raleway as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
-
-import "./globals.css";
 import { Inter } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-
-import Provider from "@/components/Provider";
+import { getServerSession } from "next-auth";
+import AppProviders from "./app-providers";
+import { authOptions } from "@/lib/authOptions";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -22,14 +21,15 @@ export const metadata = {
 		"Affordable legal protection for individuals and businesses in Ethiopia",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const session = await getServerSession(authOptions);
 	return (
 		<html lang="en">
-			<Provider session={undefined}>
+			<AppProviders session={session}>
 				<LanguageProvider>
 					<body
 						className={cn(
@@ -42,7 +42,7 @@ export default function RootLayout({
 					</body>
 				</LanguageProvider>
 				{/* <Footer /> */}
-			</Provider>
+			</AppProviders>
 		</html>
 	);
 }

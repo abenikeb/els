@@ -8,13 +8,10 @@ import Content from "@/components/sections/Content";
 import Packages from "@/components/sections/Packages";
 import Appointments from "@/components/sections/Appointments";
 import Profile from "@/components/sections/Profile";
-import Footer from "@/components/layout/Footer";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState("content");
 	const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
-	const { t } = useLanguage();
 
 	const renderActiveSection = () => {
 		switch (activeTab) {

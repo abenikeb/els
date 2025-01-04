@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-	const session = request.cookies.get("session");
+	const session = request.cookies.get("jwtToken");
+
+	// Redirect to login if no session exists for protected routes
+	if (session && request.nextUrl.pathname.startsWith("/login")) {
+		return NextResponse.redirect(new URL("/", request.url));
+	}
 
 	// Redirect to login if no session exists for protected routes
 	if (
