@@ -758,120 +758,311 @@ export const mockApiData = {
 		],
 	},
 
-	packages: [
+	rows: [
 		{
-			id: 1,
-			name: {
-				en: "Basic Start-up Packages",
-				am: "መሰረታዊ",
-				om: "Bu'uuraa",
-			},
-
-			coverImage: "/assets/images/legal-shield.jpg",
-
-			price: {
-				en: "499 ETB",
-				am: "499 ብር",
-				om: "ETB 499",
-			},
-			description: {
-				en: "Basic Start-up and Essential legal protection for individuals",
-				am: "ለግለሰቦች አሳሲ የህግ ጥበቃ",
-				om: "Eegumsa seeraa murteessaa namoota dhuunfaaf",
-			},
-			features: [
+			id: "cm49lh2ua0000f2u08o6k6pso",
+			name: "የንግድ ድርጅት (ስታርት አፕ) ማቋቋም",
+			price: "200",
+			currency: "ETB",
+			image: "uploads/a4192044-d6c4-4220-b471-fe5479994708.jpg",
+			description:
+				"ድርጅታችን ኢትዮ ሌጋል ሺልድ አዳዲስ የንግድ ድርጅቶች በሚቋቋሙበት ጊዜ አስፈላጊና ወሳኝ የሆኑ የተለያዩ አይነት አገልግሎቶችን የሚሰጥ ሲሆን እነዚህ አገልግሎቶችም የሚቋቋሙትን ድርጅቶች የገንዘብ አቅምና ሰፊ ተደራሽነትን አላማ አድርገው የቀረቡ ናቸው፡፡ ድርጅቶች በሚመሰረቱበት ጊዜ የተለያዩ አይነት ውስብስብ ችግሮች እንደሚያጋጥሟቸው እሙን ነው፤ እነዚህ ችግሮች እንደሚመሰረቱት ድርጅቶች ስፋትና እንደስራቸው አይነት የሚለያዩ ቢሆኑም አብዛኞቹ ድርጅቶች በምስረታ ወቅት የሚያጋጥሟቸው ከህግ ጋር የተያያዙ ፈተናዎች ላይ ግን ተመሳሳይነት ይስተዋላል፡፡ ከንግድ ድርጅት አመሰራረት ጋር ተያይዘው የሚነሱት ህግ ነክ ፈተናዎች በዋናነት የድርጅት አይነትና ቅርፅ፣ የንግድ ምዝገባና የንግድ ፈቃድ አወጣጥ፣ የግብር አይነቶችና የታክስ ተገዢነቶች እንዲሁም የሰራተኛ ቅጥርና የአሰሪና ሰራተኛ ግንኙነት ዙሪያ የሚያጠነጥኑ ሲሆን እነዚህን ፈተናዎች በብቃት አልፎ አንድን ድርጅት ከሁሉም አይነት ተጠያቂነቶችና የህግ ጥሰጦች ነፃ በሆነ መልኩ ለማቋቋም በቂ እውቀትና የካበተ ልምድ ያለው የህግ ባለሞያ ከጎን ማድረግ እጅግ አስፈላጊና ወሳኝ የሆነ ጉዳይ ነው፡፡",
+			features: null,
+			category: null,
+			createdAt: "2024-12-01T07:56:43.810Z",
+			updatedAt: "2024-12-16T06:56:45.172Z",
+			deletedAt: null,
+			plans: [
 				{
-					en: ["24/7 legal advice", "Document review", "Will preparation"],
-					am: ["24/7 የህግ ምክር", "የሰነድ ግምገማ", "የኑዛዜ ዝግጅት"],
-					om: [
-						"Gorsa seeraa sa'aatii 24/7",
-						"Sakatta'a sanadaa",
-						"Qophii dhaamoo",
-					],
+					id: "cm49lh2ub0002f2u0qj164cm8",
+					name: "የፕሪሚየም ጥቅል",
+					price: "2",
+					currency: "ETB",
+					description:
+						"ይህ የፕሪሚየም ጥቅል ንግዳቸውን ለማቋቋም እና ለማስኬድ በሁሉም ዘርፍ ሰፊ የህግ ድጋፍ ለሚፈልጉ ደንበኞች በመሰረታዊ እና መደበኛ ጥቅል ላይ የሚገኙትን አገልግሎቶች ጨምሮ ሁሉን አቀፍ አገልግሎቶችን ይሰጣል።",
+					createdAt: "2024-12-04T07:56:43.810Z",
+					updatedAt: "2025-01-02T05:37:24.282Z",
+					packageId: "cm49lh2ua0000f2u08o6k6pso",
+				},
+				{
+					id: "cm49lh2ub0001f2u0mmzpb98a",
+					name: "መደበኛ ጥቅል",
+					price: "2",
+					currency: "ETB",
+					description:
+						"ይህ የመደበኛ ጥቅል በመሠረታዊ ጥቅል ላይ ያሉትን አገልግሎቶች በመጨመር የንግድ ምዝገባን እና ምስረታውን የሚያመቻቹ ተጨማሪ አገልግሎቶችን ያካተተ ነዉ። ",
+					createdAt: "2024-12-04T07:56:43.810Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm49lh2ua0000f2u08o6k6pso",
+				},
+				{
+					id: "cm49lh2ub0003f2u0tvv9c4x1",
+					name: "መሰረታዊ ጥቅል",
+					price: "2",
+					currency: "ETB",
+					description:
+						"ይህ መሠረታዊ ጥቅል በንግድ ድርጅት ምስረታ የመጀመሪያ ደረጃዎች ላይ ላሉ ሥራ ፈጣሪዎች እና ነጋዴዎች የተነደፈ ነው። ይህ ጥቅል ደንበኞች አዲስ የንግድ ድርጅት ሲያቋቁሙ ለመርዳት አስፈላጊ የህግ ማማከር አገልግሎቶችን ይሰጣል።",
+					createdAt: "2024-12-04T07:56:43.810Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm49lh2ua0000f2u08o6k6pso",
 				},
 			],
 		},
 		{
-			id: 2,
-			name: {
-				en: "Comprehensive coverage Law Packages",
-				am: "ፕሪሚየም",
-				om: "Piriimiyeemii",
-			},
-			coverImage: "/assets/images/legal-shield2.jpg",
-
-			price: {
-				en: "999 ETB",
-				am: "999 ብር",
-				om: "ETB 999",
-			},
-			description: {
-				en: "Comprehensive Premium coverage for families",
-				am: "ለቤተሰቦች ሁለንተናዊ ሽፋን",
-				om: "Haguuggii guutuu maatiif",
-			},
-			features: {
-				en: [
-					"All Basic features",
-					"Family coverage",
-					"Traffic ticket defense",
-					"IRS audit assistance",
-				],
-				am: [
-					"ሁሉም መሰረታዊ ባህሪያት",
-					"የቤተሰብ ሽፋን",
-					"የትራፊክ ቲኬት መከላከያ",
-					"የIRS ኦዲት እርዳታ",
-				],
-				om: [
-					"Amaloota Bu'uuraa hunda",
-					"Haguuggii maatii",
-					"Ittisa tiiketii daandii",
-					"Gargaarsa ooditii IRS",
-				],
-			},
+			id: "cm3u2ye2g0000f2a77ozsge06",
+			name: "ለቤት ገዥዎች የሕግ ጥበቃ",
+			price: "200",
+			currency: "ETB",
+			image: "uploads/2288dc8d-69a2-432e-a057-06437108fc1c.png",
+			description:
+				"የሪል  እስቴት ግብይቶን  በኢትዮ ሌጋል ሺልድ ይጠብቁ!  በሃገራችን የሪል እስቴት ገበያ  ገዢዎች የሚጭበረበሩበት፣ ግልጽ ባልሆነ ባለቤትነት እና የውል ጥስቶችን  ጨምሮ ከፍተኛ ውዝግብ የሞላበት  ነዉ።ኢትዮ ሌጋል ሺልድ እያንዳንዱ የገዢ እርመጃ ደህንነቱ የተጠበቀ እና አስተማማኝ የግብይት  ሂደትን ለመፍጠር እየሰራ ይገኛል። ራዕያችን  ከመጨበረበር የፀዳ ደህንነቱ የተጠበቀ የሪል ስቴት ገበያን  ለመፍጠር ያለመ ሲሆን ለዚህም የሪል እስቴት ገዥ ጥበቃ ጥቅል የህግ  አገልግሎት ይዘንሎት መተናል።  የዚህም አገልግሎት ተጠቃሚ በመሆን   በማንኛውም የቤት  ግዢ  የግብይት ደረጃ ፍላጎቶችዎን ለመጠበቅ  በዘርፉ ልምድ ያካበቱ ጠበቆቻችን የታገዘ በእውቀት ላይ የተመሰረተ ውሳኔን ያሰተላለፉ።  ገንዘቦን የጊዜዎን አና ንብረቶን ያስጠብቁ። ኢትዮ ሌጋል ቪልድ በህጋዊ የህግ ፍላጎቶች ውስጥ የርሶ ጋሻ!",
+			features: null,
+			category: null,
+			createdAt: "2024-12-02T11:21:46.169Z",
+			updatedAt: "2024-12-16T06:57:34.048Z",
+			deletedAt: null,
+			plans: [
+				{
+					id: "cm3u2ye2h0001f2a7qyl3sn8k",
+					name: "Standard",
+					price: "2",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-11-23T11:21:46.169Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm3u2ye2g0000f2a77ozsge06",
+				},
+			],
 		},
 		{
-			id: 3,
-			name: {
-				en: "Business",
-				am: "ቢዝነስ",
-				om: "Daldalaa",
-			},
-			coverImage: "/assets/images/legal-shield.jpg",
-
-			price: {
-				en: "1999 ETB",
-				am: "1999 ብር",
-				om: "ETB 1999",
-			},
-			description: {
-				en: "Legal solutions for small businesses",
-				am: "ለአነስተኛ ንግዶች የህግ መፍትሄዎች",
-				om: "Furmaata seeraa dhaabbilee daldalaa xiqqaaf",
-			},
-			features: {
-				en: [
-					"All Premium features",
-					"Business contract review",
-					"Debt collection assistance",
-					"Employee handbook review",
-				],
-				am: [
-					"ሁሉም ፕሪሚየም ባህሪያት",
-					"የንግድ ውል ግምገማ",
-					"የዕዳ ሰብሳቢ እርዳታ",
-					"የሰራተኛ መመሪያ ግምገማ",
-				],
-				om: [
-					"Amaloota Piriimiyeemii hunda",
-					"Sakatta'a kontiraata daldalaa",
-					"Gargaarsa sassaabbii liqii",
-					"Sakatta'a qajeelcha hojjetaa",
-				],
-			},
+			id: "cm4p99aur001kf2f62lyhd2wp",
+			name: "ለማህበራዊ ሚዲያ ተጽዕኖ ፈጣሪዎች ልዩ የህግ አገልግሎት ጥቅል",
+			price: "200",
+			currency: "ETB",
+			image: "uploads/81ce1d8a-351f-427e-8e8e-3a4f9add3df0.jpg",
+			description:
+				"ማህበራዊ ሚዲያ ባሁኑ ወቅት በአለም አቀፍ ደረጃ ከፍተኛ ተቀባይነት ያገኘ የበርካታ ሚሊየን ብሮች ኢንደስትሪ መሆኑ ይታወቃል ፡፡ ስለሆነም ያላቸው ሚና ከፍተኛ እንደመሆኑ፣ መብትና ግዴታቸውን አውቀው እንዲንቀሳቀሱ ማስቻል፣ ሰላማዊ እና ፍትህ የሰፈነበት የማህበራዊ ሚዲያ ከባቢን ከመፍጠሩ ባሻገር፣ እንደግለሰብ የማስታወቂያ ህጉን እንዲያከብሩ፣ Artificial intelligenceን በአግባቡ እንዲጠቀሙ ለማስቻል፣ ከጥላቻ ንግግር ጋር ተያይዞየሚመጡ ሀላፊነቶችን እንዲያውቁ፣ ከስም ማጥፋት እና የተሳሳተ መረጃ ከመስጠት እንዲቆጠቡ፣ የብራንድ አምባሳደርነት ሚና ሲወስዱ ደግሞ እነሱን ወክሎ ውል ማርቀቅ፣ መደራደር፣ ቀድሞ የተዘጋጁ ውሎችን መገምገምን በህግ ባለሙያ እንዲያከናውኑ እና የፍትሀ ብሄር እና የወንጀል ተጠያቂነቶችን ሊያመጡ የሚችሉ ድርጊቶችን በሚፈጽሙ ጊዜ በእውቀት እና በመረጃ የተደገፈ ውሳኔ እንዲወስኑ በማስቻል የሚደርስባቸውን እና የሚያደርሱትን የመብት ጥሰቶች ለመከላከል  ኢትዮ ሌጋል ሺልድ ከኢትዮ ቴሌኮም ጋር በመተባበር በቴሌብር መተግበሪያ ላይ ለማህበራዊ ሚዲያ ተጽዕኖ ፈጣሪዎች ያቀረበውን ልዩ የህግ አገልግሎት ጥቅል ደንበኞች ስልካቸውን በመጠቀም ብቻ በቀላሉ ማግኘት ይችላሉ።",
+			features: null,
+			category: null,
+			createdAt: "2024-12-03T06:59:04.371Z",
+			updatedAt: "2024-12-16T07:00:50.698Z",
+			deletedAt: null,
+			plans: [
+				{
+					id: "cm4p99aus001lf2f69msbl38f",
+					name: "መደበኛ አገልግሎት",
+					price: "3",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-12-15T06:59:04.371Z",
+					updatedAt: "2025-01-02T05:37:24.282Z",
+					packageId: "cm4p99aur001kf2f62lyhd2wp",
+				},
+				{
+					id: "cm4p99aus001mf2f6mcrr1585",
+					name: "ፕሪሚዬም አገልግሎት",
+					price: "2",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-12-15T06:59:04.371Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm4p99aur001kf2f62lyhd2wp",
+				},
+			],
+		},
+		{
+			id: "cm4i2ly5t001af2f6bg40un5a",
+			name: "የኔትዎርክ ትራንስፖርት (ሜትር ታክሲ) አሽከርካሪዎች የቅድመ ክፍያ የህግ ጥበቃ",
+			price: "200",
+			currency: "ETB",
+			image: "uploads/44c1156e-8e95-4cd5-a5ce-b0637244f519.jpg",
+			description:
+				"የኔትዎርክ ትራንስፖርት (ሜትር ታክሲ) አሽከርካሪዎችን ጨምሮ አሽከርካሪዎች በየሄዱበት ቦታ ለደህንነታቸዉ ሳይሳሱ የተገልጋዮችን ድህንነት እና ምቾት ጠብቀዉ ከፈለጉበት ያደርሳሉ በመሆኑም ለሀገር የሚያበረክቱት አስተዋፅኦ በቃላት የሚገለፅ አይደለም። ይሁንና አሽከርካሪ የተለያዩ ሰው ሰራሽ ችግሮችም ግንባር ቀደም ገፈት ቀማሽ ነዉ። ከነዚህም በአሰሪዎቻቸው ያለአግባብ የቅጥር ውላቸው ሲቋረጥ እና በትራፊክ ተቆጣጣሪዎች እንግልት ሲደርስባቸው እና በህግ አገልግሎትና በፍትህ ዘርፍ ችግር ሲገጥማቸዉ ይስተዋላል። ኢትዮ ሌጋል ሺልድ አሽከርካሪዎች ሊደርስባቸው ስለሚችሉት ከህግ አገልግሎትና ከፍትህ ጋር የተያያዙ እንግልቶች ለአፍታም ሳያስቡ ሙሉ ትኩረታቸውን በስራቸውና በሚያሽከረክሩት ተሸከርካሪ ላይ በማድረግ በህይወት፣ በአካልና በንብረት ላይ ሊደርስ ከሚችል ጉዳት እንዲጠበቁ  ለኔትዎርክ ትራንስፖርት አሽከርካሪዎች ያቀረበዉን ልዩ የቅድመ ክፍያ ጥቅል  ይጠቀሙ።",
+			features: null,
+			category: null,
+			createdAt: "2024-12-04T06:18:33.905Z",
+			updatedAt: "2024-12-16T07:00:50.698Z",
+			deletedAt: null,
+			plans: [
+				{
+					id: "cm4i2ly5t001bf2f6jgrprxkk",
+					name: "መደበኛ ወርሃዊ",
+					price: "500",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-12-10T06:18:33.905Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm4i2ly5t001af2f6bg40un5a",
+				},
+			],
+		},
+		{
+			id: "cm3u2gol20000f26s9nqhyfmk",
+			name: "ውርስን ማቀድ",
+			price: "3000",
+			currency: "ETB",
+			image: "uploads/2288dc8d-69a2-432e-a057-06437108fc1c.png",
+			description:
+				"ከእርስዎ ህልፈት በኋላ ቤተሠብዎ ሰላም እንዲሆን ዛሬን ያቅዱ! የሰው ልጅ በህይወት ዘመኑ ያፈራው እና ያከማቸውን ሀብቱን ድንገት በላሰበው ጊዜና ሁኔታ ጥሎት ያልፋል፤ በንብረት ላይ የሚነሳ የይገባኛል ጥያቄም በቤተሰብ እና ወዳጅ መካከል ከገጠመ ሃዘን በተጨማሪ፣ የጸብ እና የጥል መንስዔ ሲሆን ይስተዋላል፡፡ ለዚህም ደግሞ አስቀድሞ በህጋዊ መንገድ ውርስን ማቀድ እና በሁኔታ ላይ የተመሰረተ ውርስ እቅድን ማዘጋጀት ውስብስብ በሆነው የህይወት ጎዳና ውስጥ ሊፈጠሩ የሚችሉ አለመግባባቶችን ለመከላከል ፣ ግለሰቦችም ካለፉ በኋላ ንብረታቸው በፈለጉት ቦታ መቀመጡን ለማረጋጥ እና ፍርድ ቤት ወጪ እንዲሁም እንግልት ለማስቀረት ፍቱን መፍተሄ ነወ፡፡ በመሆኑም ኢትዮ ሌጋል ሺልድ በቴሌ ብር ሱፐርአፕ (Tele Birr SuperApp) አማካኝነት በአንድ ጊዜ አነስተኛ ክፍያ የሚሰጥ የውርስ እቅድ እና ሃብትን በውርስ የማስተላለፍ አገልግሎት የዞ መጥተዋል፡፡",
+			features: null,
+			category: null,
+			createdAt: "2024-12-05T11:07:59.990Z",
+			updatedAt: "2024-12-16T07:02:12.247Z",
+			deletedAt: null,
+			plans: [],
+		},
+		{
+			id: "cm4p954lz001hf2f66az2pnwa",
+			name: "የውል አገልግሎት",
+			price: "200",
+			currency: "ETB",
+			image: "uploads/e9b56b7e-6f05-4cef-9a5b-285a93e9bbe5.jpg",
+			description:
+				"ማንኛውም መብት ወይም ግዴታን  በውል ስያስተላልፉ ወይም ሲቀበሉ ወይም አንድን ተግባር ለመፈጸም ይሁን ላላመፈጸም ውል ስፈጽሙ የውሉን አጠቃላይ ባህሪ በመረዳት የሚያመጣውንም ውጤት አውቀው የራስንም ሆነ የሌላው መብት መጠበቅ እና ወደፊት ሊነሱ ከሚችሉ አለመግባባቶች ለመጠበቅ ውሎችን በሚመለከተው ባለሙያ ማዘጋጀት ወይም ውሎችን ከማድረግ በፊት ውሎቹን በባለሙያ ማስገምገም፤ ውሎች ከተደረጉ በኃላም አፈጻጸማቸውን በተመለከተ የሚነሱ ሕጋዊ ጥያቄዎችን አንስቶ ተገቢ የባለሙያ ምላሽ ማግኘት ከምንም ነገር በላይ ቅድሚያ ሚሰጠው ጉዳይ ነው። ስለሆነም ኢትዩ ሌጋል ሺልድ ደንበኞች ለሚያደርጓቸው ማናቸውም አይነት ውሎች ማዘጋጀት፤ የተዘጋጁ ውሎችን መገምገም እና የቅድም ውል ድርድር የማድረግ አገልግሎት በመስጠት ላይ ሲሆን፣ እርሶም ይህንን የዉል የህግ ጥበቃ አገልግሎት በመጠቀም መብቶንና ጥቅመውን ያስከብሩ።",
+			features: null,
+			category: null,
+			createdAt: "2024-12-06T06:55:49.654Z",
+			updatedAt: "2024-12-16T07:00:50.698Z",
+			deletedAt: null,
+			plans: [
+				{
+					id: "cm4p954m0001if2f699uyu0ox",
+					name: "መደበኛ አገልግሎት",
+					price: "2",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-12-15T06:55:49.654Z",
+					updatedAt: "2025-01-02T05:37:24.282Z",
+					packageId: "cm4p954lz001hf2f66az2pnwa",
+				},
+				{
+					id: "cm4p954m0001jf2f6lyv01dud",
+					name: "ፕሪሚዬም አገልግሎት",
+					price: "2",
+					currency: "ETB",
+					description: null,
+					createdAt: "2024-12-15T06:55:49.654Z",
+					updatedAt: "2025-01-02T05:37:57.568Z",
+					packageId: "cm4p954lz001hf2f66az2pnwa",
+				},
+			],
 		},
 	],
+
+	// packages: [
+	// 	{
+	// 		id: 1,
+	// 		name: {
+	// 			en: "Basic Start-up Packages",
+	// 			am: "መሰረታዊ",
+	// 			om: "Bu'uuraa",
+	// 		},
+
+	// 		coverImage: "/assets/images/legal-shield.jpg",
+
+	// 		price: {
+	// 			en: "499 ETB",
+	// 			am: "499 ብር",
+	// 			om: "ETB 499",
+	// 		},
+	// 		description: {
+	// 			en: "Basic Start-up and Essential legal protection for individuals",
+	// 			am: "ለግለሰቦች አሳሲ የህግ ጥበቃ",
+	// 			om: "Eegumsa seeraa murteessaa namoota dhuunfaaf",
+	// 		},
+	// 		features: [
+	// 			{
+	// 				en: ["24/7 legal advice", "Document review", "Will preparation"],
+	// 				am: ["24/7 የህግ ምክር", "የሰነድ ግምገማ", "የኑዛዜ ዝግጅት"],
+	// 				om: [
+	// 					"Gorsa seeraa sa'aatii 24/7",
+	// 					"Sakatta'a sanadaa",
+	// 					"Qophii dhaamoo",
+	// 				],
+	// 			},
+	// 		],
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		name: {
+	// 			en: "Comprehensive coverage Law Packages",
+	// 			am: "ፕሪሚየም",
+	// 			om: "Piriimiyeemii",
+	// 		},
+	// 		coverImage: "/assets/images/legal-shield2.jpg",
+
+	// 		price: {
+	// 			en: "999 ETB",
+	// 			am: "999 ብር",
+	// 			om: "ETB 999",
+	// 		},
+	// 		description: {
+	// 			en: "Comprehensive Premium coverage for families",
+	// 			am: "ለቤተሰቦች ሁለንተናዊ ሽፋን",
+	// 			om: "Haguuggii guutuu maatiif",
+	// 		},
+	// 		features: {
+	// 			en: [
+	// 				"All Basic features",
+	// 				"Family coverage",
+	// 				"Traffic ticket defense",
+	// 				"IRS audit assistance",
+	// 			],
+	// 			am: [
+	// 				"ሁሉም መሰረታዊ ባህሪያት",
+	// 				"የቤተሰብ ሽፋን",
+	// 				"የትራፊክ ቲኬት መከላከያ",
+	// 				"የIRS ኦዲት እርዳታ",
+	// 			],
+	// 			om: [
+	// 				"Amaloota Bu'uuraa hunda",
+	// 				"Haguuggii maatii",
+	// 				"Ittisa tiiketii daandii",
+	// 				"Gargaarsa ooditii IRS",
+	// 			],
+	// 		},
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		name: {
+	// 			en: "Business",
+	// 			am: "ቢዝነስ",
+	// 			om: "Daldalaa",
+	// 		},
+	// 		coverImage: "/assets/images/legal-shield.jpg",
+
+	// 		price: {
+	// 			en: "1999 ETB",
+	// 			am: "1999 ብር",
+	// 			om: "ETB 1999",
+	// 		},
+	// 		description: {
+	// 			en: "Legal solutions for small businesses",
+	// 			am: "ለአነስተኛ ንግዶች የህግ መፍትሄዎች",
+	// 			om: "Furmaata seeraa dhaabbilee daldalaa xiqqaaf",
+	// 		},
+	// 		features: {
+	// 			en: [
+	// 				"All Premium features",
+	// 				"Business contract review",
+	// 				"Debt collection assistance",
+	// 				"Employee handbook review",
+	// 			],
+	// 			am: [
+	// 				"ሁሉም ፕሪሚየም ባህሪያት",
+	// 				"የንግድ ውል ግምገማ",
+	// 				"የዕዳ ሰብሳቢ እርዳታ",
+	// 				"የሰራተኛ መመሪያ ግምገማ",
+	// 			],
+	// 			om: [
+	// 				"Amaloota Piriimiyeemii hunda",
+	// 				"Sakatta'a kontiraata daldalaa",
+	// 				"Gargaarsa sassaabbii liqii",
+	// 				"Sakatta'a qajeelcha hojjetaa",
+	// 			],
+	// 		},
+	// 	},
+	// ],
 
 	appointments: {
 		availableTimes: ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"],

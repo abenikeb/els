@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import "./style.css";
 
 export default function Packages() {
 	const { t, apiData, getLocalizedApiData } = useLanguage();
@@ -20,7 +21,37 @@ export default function Packages() {
 				</p> */}
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-				{apiData.packages.map((pkg: any, index: number) => (
+				{apiData.rows.map((pkg: any, index: number) => (
+					<motion.div
+						key={pkg.id}
+						initial={{ opacity: 0, y: 50 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: index * 0.1 }}>
+						<Link href={`/packages/${pkg.id}`} passHref>
+							<Card className="h-full flex flex-col shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+								<Image
+									src={
+										`https://package.ethiolegalshield.com/${pkg.image}` ||
+										"/assets/images/legal-shield.jpg"
+									}
+									alt={pkg.name}
+									width={400}
+									height={200}
+									className="w-full h-48 object-cover rounded-t-lg"
+								/>
+								<CardHeader className="bg-blue-50 text-gray-900">
+									<CardTitle className="text-2xl font-bold">
+										{pkg.name}
+									</CardTitle>
+								</CardHeader>
+								<CardContent className="flex-grow p-4">
+									<h5 className="text-gray-600">{pkg.description}</h5>
+								</CardContent>
+							</Card>
+						</Link>
+					</motion.div>
+				))}
+				{/* {apiData.packages.map((pkg: any, index: number) => (
 					<motion.div
 						key={index}
 						initial={{ opacity: 0, y: 50 }}
@@ -48,7 +79,7 @@ export default function Packages() {
 							</Card>
 						</Link>
 					</motion.div>
-				))}
+				))} */}
 			</div>
 		</div>
 	);

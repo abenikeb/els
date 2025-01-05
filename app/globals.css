@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* Importing the Noto Sans Ethiopic font */
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -33,7 +35,7 @@
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
-  .dark {
+	.dark {
 		--sidebar-background: 240 5.9% 10%;
 		--sidebar-foreground: 240 4.8% 95.9%;
 		--sidebar-primary: 224.3 76.3% 48%;
@@ -53,13 +55,27 @@
 	body {
 		@apply bg-background text-foreground;
 	}
-
+	h5 {
+		font-family: "Noto Sans Ethiopic", sans-serif !important;
+	}
 	h1,
 	h2,
 	h3,
 	h4,
-	h5,
 	h6 {
 		/* @apply font-heading; */
 	}
+}
+
+.aspect-video {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%; /* 16:9 ratio */
+}
+.aspect-video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

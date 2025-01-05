@@ -8,11 +8,11 @@ const nextConfig = {
 		// !! WARN !!
 		ignoreBuildErrors: true,
 	},
+	reactStrictMode: true,
 	env: {
 		NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 		NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
 	},
-	reactStrictMode: true,
 	images: {
 		remotePatterns: [
 			{
@@ -23,10 +23,10 @@ const nextConfig = {
 			},
 		],
 	},
-	experimental: {
-		esmExternals: "loose",
-	},
-	swcMinify: true,
+	// experimental: {
+	// 	esmExternals: "loose",
+	// },
+	// swcMinify: true,
 	async rewrites() {
 		return [
 			{

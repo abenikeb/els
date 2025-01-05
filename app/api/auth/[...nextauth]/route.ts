@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
+import { cookies } from "next/headers";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axios from "@/configs/axios";
+import axios from "axios";
 import NextAuth from "next-auth/next";
 
 export const authOptions: NextAuthOptions = {
@@ -12,33 +13,36 @@ export const authOptions: NextAuthOptions = {
 				password: { label: "Password", type: "password" },
 			},
 			async authorize(credentials) {
-				const { email, password } = credentials ?? {};
-
-				if (!email || !password) {
+				if (!credentials?.email || !credentials?.password) {
 					throw new Error("Missing email or password");
 				}
 
-				console.log({ email });
-
 				try {
-					const { data } = await axios.post(
+					const response = await axios.post(
 						"https://package.ethiolegalshield.com/api/v1/auth/login",
 						{
-							email,
-							password,
+							email: credentials.email,
+							password: credentials.password,
+							redirect: false,
 						}
 					);
 
-					if (!data) {
+					console.log({ userResponse: response.data });
+
+					const user = response.data;
+
+					if (user && user.jwtToken) {
+						const { jwtToken } = user;
+						cookies().set("jwtToken", jwtToken);
+						return {
+							id: user.id,
+							email: user.email,
+							name: user.name,
+							jwtToken: user.jwtToken,
+						};
+					} else {
 						return null;
 					}
-
-					return {
-						id: data.user.id,
-						email: data.user.email,
-						name: data.user.name,
-						jwtToken: data.jwtToken,
-					};
 				} catch (error) {
 					console.error("Authentication error:", error);
 					return null;
@@ -48,6 +52,7 @@ export const authOptions: NextAuthOptions = {
 	],
 	callbacks: {
 		async jwt({ token, user }: any) {
+			console.log({ userToken: token });
 			if (user) {
 				token.id = user.id;
 				token.email = user.email;
@@ -57,11 +62,11 @@ export const authOptions: NextAuthOptions = {
 			return token;
 		},
 		async session({ session, token }: any) {
-			if (token) {
-				session.user.id = token.id;
-				session.user.email = token.email;
-				session.user.name = token.name;
-				session.user.jwtToken = token.jwtToken;
+			if (token && session.user) {
+				session.user.id = token.id as string;
+				session.user.email = token.email as string;
+				session.user.name = token.name as string;
+				session.user.jwtToken = token.jwtToken as string;
 			}
 			return session;
 		},
@@ -71,8 +76,20 @@ export const authOptions: NextAuthOptions = {
 	},
 	session: {
 		strategy: "jwt",
-		maxAge: 30 * 60, // 30 minutes
+		maxAge: 30 * 24 * 60 * 60, // 30 days
 	},
+	cookies: {
+		sessionToken: {
+			name: `__Secure-next-auth.session-token`,
+			options: {
+				httpOnly: true,
+				sameSite: "lax",
+				path: "/",
+				secure: process.env.NODE_ENV === "production",
+			},
+		},
+	},
+
 	secret: process.env.NEXTAUTH_SECRET,
 };
 

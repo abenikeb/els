@@ -21,8 +21,8 @@ export default function ShareModal({
 	post,
 	onClose,
 }: {
-	post: Post;
-	onClose: () => void;
+	post: Post | any;
+	onClose: () => void | any;
 }) {
 	const [copied, setCopied] = useState(false);
 	const shareUrl = `https://legalshield.com/content/${post.id}`;

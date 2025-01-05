@@ -1,10 +1,8 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 import { getSession } from "next-auth/react";
 
 const instance = axios.create({
 	baseURL: "/api/v1",
-	withCredentials: true,
 	headers: {
 		"Content-Type": "application/json",
 	},
@@ -22,4 +20,5 @@ instance.interceptors.request.use(
 		return Promise.reject(error);
 	}
 );
+
 export default instance;
