@@ -32,6 +32,10 @@ export const staticText = {
 			roleAdmin: "Admin",
 		},
 
+		common: {
+			backToHome: "Back",
+		},
+
 		content: {
 			// Section title and labels for content categories
 			title: "Legal Resources",
