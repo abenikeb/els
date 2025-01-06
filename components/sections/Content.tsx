@@ -163,12 +163,12 @@ export default function Content() {
 					</TabsContent>
 				))}
 			</Tabs>
-			{/* {isShareModalOpen && currentShareItem && (
+			{isShareModalOpen && currentShareItem && (
 				<ShareModal
 					item={currentShareItem}
 					onClose={() => setIsShareModalOpen(false)}
 				/>
-			)} */}
+			)}
 		</div>
 	);
 }
@@ -189,7 +189,7 @@ function ContentCard({
 	onLike,
 	onShare,
 }: {
-	item: ContentItem;
+	item: ContentItem | any;
 	onLike: (id: string) => void;
 	onShare: (item: ContentItem) => void;
 }) {
@@ -206,7 +206,9 @@ function ContentCard({
 						<AvatarFallback>AU</AvatarFallback>
 					</Avatar>
 					<div>
-						<h3 className="font-semibold">Author Name</h3>
+						<h3 className="font-semibold">
+							{item.author?.givenName as any} {item.author?.fatherName as any}
+						</h3>
 						<p className="text-sm text-gray-500">
 							{new Date(item.createdAt).toLocaleDateString()}
 						</p>
@@ -262,7 +264,7 @@ function ContentCard({
 					)}
 				</Button>
 				<div className="flex items-center space-x-4 mt-4">
-					<Button
+					{/* <Button
 						variant="ghost"
 						size="sm"
 						onClick={() => onLike(item.id)}
@@ -275,7 +277,7 @@ function ContentCard({
 						onClick={() => setShowComments(!showComments)}
 						className="text-blue-600 hover:text-blue-800">
 						<MessageCircle className="h-4 w-4 mr-2" />0
-					</Button>
+					</Button> */}
 					<Button
 						variant="ghost"
 						size="sm"

@@ -18,10 +18,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Mail, Phone, Lock } from "lucide-react";
 import Cookies from "js-cookie";
+import { jwtVerify } from "jose";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 export default function Profile() {
 	const { t, language, apiData, getLocalizedApiData } = useLanguage();
 	const router = useRouter();
+	const userData = useSession();
 	const [personalInfo, setPersonalInfo] = useState({
 		firstName: "",
 		lastName: "",
@@ -34,21 +37,54 @@ export default function Profile() {
 		confirmPassword: "",
 	});
 
+	const decodeUserFromToken = async (token: any) => {
+		try {
+			// Replace 'your-secret-key' with your actual secret key or public key
+			const secret = new TextEncoder().encode("secretKey");
+			console.log({ token });
+			// Verify and decode the token
+			const { payload }: any = await jwtVerify(token, secret);
+
+			// Log or return the decoded payload
+			console.log("Decoded Payload:", payload);
+			console.log({ payload });
+			setPersonalInfo({
+				firstName: (payload.email as any) ? payload.email.split("@")[0] : "",
+				lastName: payload.email ? payload.email.split("@")[0] : "",
+				email: payload.email,
+				phone: apiData.user.phone,
+			});
+			return payload;
+		} catch (error) {
+			console.error("Token verification failed:", error);
+			throw new Error("Invalid token");
+		}
+	};
+
 	useEffect(() => {
 		// Check if user is logged in
 		// const isLoggedIn = document.cookie.includes("session=authenticated");
 		const isLoggedIn = Cookies.get("jwtToken");
-		console.log({ isLoggedIn });
+
 		if (!isLoggedIn) {
 			router.push("/login");
 		} else {
+			decodeUserFromToken(isLoggedIn);
+			// Example usage
+			// const token = Cookies.get("jwtToken");
+			// console.log({ token });
+			// decodeUserFromToken(token).then((user) => console.log(user));
 			// Fetch user data from mock API
-			setPersonalInfo({
-				firstName: getLocalizedApiData("user.firstName") || "",
-				lastName: getLocalizedApiData("user.lastName") || "",
-				email: apiData.user.email,
-				phone: apiData.user.phone,
-			});
+			// setPersonalInfo({
+			// 	// firstName: getLocalizedApiData("user.firstName") || "",
+			// 	// lastName: getLocalizedApiData("user.lastName") || "",
+			// 	// email: apiData.user.email,
+			// 	// phone: apiData.user.phone,
+			// 	firstName: userData.data?.user?.name || "",
+			// 	lastName: getLocalizedApiData("user.lastName") || "",
+			// 	email: apiData.user.email,
+			// 	phone: apiData.user.phone,
+			// });
 		}
 	}, [language, apiData, getLocalizedApiData, router]);
 

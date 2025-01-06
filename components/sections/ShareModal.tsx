@@ -17,15 +17,9 @@ type Post = {
 	type: "video" | "audio" | "text";
 };
 
-export default function ShareModal({
-	post,
-	onClose,
-}: {
-	post: Post | any;
-	onClose: () => void | any;
-}) {
+export default function ShareModal({ post, onClose }: any) {
 	const [copied, setCopied] = useState(false);
-	const shareUrl = `https://legalshield.com/content/${post.id}`;
+	const shareUrl = `https://legalshield.com/content/1`;
 
 	const handleCopyLink = () => {
 		navigator.clipboard.writeText(shareUrl);

@@ -23,6 +23,7 @@ import {
 	LogOut,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Cookies from "js-cookie";
 
 interface SideDrawerProps {
 	isOpen: boolean;
@@ -43,13 +44,15 @@ export default function SideDrawer({
 
 	useEffect(() => {
 		// Check if user is logged in
-		setIsLoggedIn(document.cookie.includes("session=authenticated"));
+		const isLoggedIn = Cookies.get("jwtToken");
+		console.log({ isLoggedIn });
+
+		setIsLoggedIn(document.cookie.includes(isLoggedIn as any));
 	}, []);
 
 	const handleLogout = () => {
 		// Clear the session cookie
-		document.cookie =
-			"session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		Cookies.remove("jwtToken");
 		setIsLoggedIn(false);
 		router.push("/login");
 		onClose();

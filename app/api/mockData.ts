@@ -61,6 +61,9 @@ export const staticText = {
 			// Title for the packages section
 			title: "Our Packages",
 			purchase: "Purchase",
+			viewDetails: "View Details",
+			seeMore: "See More",
+			seeLess: "See Less",
 		},
 
 		profile: {
@@ -350,6 +353,9 @@ export const staticText = {
 		packages: {
 			// Title for the packages section in Amharic
 			title: "የህግ ጥበቃ ጥቅሎች",
+			viewDetails: "ዝርዝሮችን ይመልከቱ",
+			seeMore: "ተጨማሪ ይመልከቱ",
+			seeLess: "ያነሰ ይመልከቱ",
 		},
 		appointments: {
 			// Title for the appointments section in Amharic

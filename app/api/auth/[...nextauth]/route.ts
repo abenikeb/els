@@ -53,22 +53,25 @@ export const authOptions: NextAuthOptions = {
 	callbacks: {
 		async jwt({ token, user }: any) {
 			console.log({ userToken: token });
-			if (user) {
-				token.id = user.id;
-				token.email = user.email;
-				token.name = user.name;
-				token.jwtToken = user.jwtToken;
-			}
+			// if (user) {
+			// 	token.id = user.id;
+			// 	token.email = user.email;
+			// 	token.name = user.name;
+			// 	token.jwtToken = user.jwtToken;
+			// }
 			return token;
 		},
 		async session({ session, token }: any) {
-			if (token && session.user) {
-				session.user.id = token.id as string;
-				session.user.email = token.email as string;
-				session.user.name = token.name as string;
-				session.user.jwtToken = token.jwtToken as string;
-			}
+			// if (token && session.user) {
+			// 	session.user.id = token.id as string;
+			// 	session.user.email = token.email as string;
+			// 	session.user.name = token.name as string;
+			// 	session.user.jwtToken = token.jwtToken as string;
+			// }
 			return session;
+		},
+		async signIn({ profile, account, user }: any) {
+			return true;
 		},
 	},
 	pages: {
