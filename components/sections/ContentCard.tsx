@@ -47,9 +47,14 @@ export default function ContentCard({ item }: { item: ContentItem }) {
 						</AvatarFallback>
 					</Avatar>
 					<div>
-						<h3 className="font-semibold text-blue-800">
-							{item.author?.givenName} {item.author?.fatherName}
-						</h3>
+						{item.author ? (
+							<h3 className="font-semibold text-blue-800">
+								{item.author?.givenName} {item.author?.fatherName}
+							</h3>
+						) : (
+							<h3 className="font-semibold text-blue-800">Abebe Teka</h3>
+						)}
+
 						<p className="text-sm text-gray-500">
 							{new Date(item.createdAt).toLocaleDateString()}
 						</p>
