@@ -90,10 +90,11 @@ export default function AppointmentsPage() {
 	const fetchSpecialists = async () => {
 		try {
 			const response = await axios.get("/users");
+			console.log({ response });
 			const filteredSpecialists = response.data.filter(
 				(user: Specialist) => user.type === "SPECIALIST"
 			);
-			setSpecialists(filteredSpecialists);
+			// setSpecialists(filteredSpecialists);
 		} catch (error) {
 			console.error("Error fetching specialists:", error);
 			toast({
