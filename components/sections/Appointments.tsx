@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { format } from "date-fns";
-import { Calendar } from "@/components/ui/calendar";
+import { format, addDays, startOfWeek, isSameDay } from "date-fns";
 import {
 	Card,
 	CardContent,
@@ -13,13 +12,6 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,7 +19,16 @@ import { useToast } from "@/components/ui/use-toast";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Clock, MapPin, CalendarIcon, User, Phone, Mail } from "lucide-react";
+import {
+	Clock,
+	MapPin,
+	CalendarIcon,
+	User,
+	Phone,
+	Mail,
+	ChevronLeft,
+	ChevronRight,
+} from "lucide-react";
 import axios from "@/configs/axios";
 import { Specialist, Appointment } from "@/types/appointment";
 import Cookies from "js-cookie";
@@ -43,6 +44,7 @@ const sampleSpecialists: Specialist[] = [
 		createdAt: "2024-12-15T07:29:16.022Z",
 		updatedAt: "2024-12-15T07:29:16.022Z",
 	},
+	// Add more sample specialists here for demonstration
 ];
 
 export default function AppointmentsPage() {
@@ -58,6 +60,21 @@ export default function AppointmentsPage() {
 	);
 	const [selectedTime, setSelectedTime] = useState<string>("");
 	const [notes, setNotes] = useState<string>("");
+	const [currentWeek, setCurrentWeek] = useState(startOfWeek(new Date()));
+
+	const weekDays = [...Array(7)].map((_, i) => addDays(currentWeek, i));
+
+	const timeSlots = [
+		"09:00",
+		"10:00",
+		"11:00",
+		"12:00",
+		"13:00",
+		"14:00",
+		"15:00",
+		"16:00",
+		"17:00",
+	];
 
 	useEffect(() => {
 		const isLoggedIn = Cookies.get("jwtToken");
@@ -73,17 +90,17 @@ export default function AppointmentsPage() {
 	const fetchSpecialists = async () => {
 		try {
 			const response = await axios.get("/users");
-			setSpecialists(
-				response.data.length > 0 ? response.data : sampleSpecialists
+			const filteredSpecialists = response.data.filter(
+				(user: Specialist) => user.type === "SPECIALIST"
 			);
+			setSpecialists(filteredSpecialists);
 		} catch (error) {
 			console.error("Error fetching specialists:", error);
 			toast({
 				title: "Error",
-				description: "Failed to fetch specialists. Using sample data.",
+				description: "Failed to fetch specialists. Please try again.",
 				variant: "destructive",
 			});
-			setSpecialists(sampleSpecialists);
 		}
 	};
 
@@ -117,6 +134,8 @@ export default function AppointmentsPage() {
 
 		try {
 			await axios.post("/appointments", {
+				customerId: "cm53jtzyj002df27cyzrb0m20",
+				status: "PENDING",
 				specialistId: selectedSpecialist,
 				scheduledAt: appointmentDateTime.toISOString(),
 				notes: notes,
@@ -140,15 +159,23 @@ export default function AppointmentsPage() {
 		}
 	};
 
+	const handlePreviousWeek = () => {
+		setCurrentWeek((prevWeek) => addDays(prevWeek, -7));
+	};
+
+	const handleNextWeek = () => {
+		setCurrentWeek((prevWeek) => addDays(prevWeek, 7));
+	};
+
 	return (
-		<div className="container mx-auto py-10 px-4 bg-gray-50 min-h-screen">
-			<h1 className="text-4xl font-bold text-blue-900 mb-8">Appointments</h1>
+		<div className="container mx-auto pt-2 pb-5 px-1 bg-gray-50 min-h-screen">
+			<h1 className="text-3xl font-bold text-blue-900 mb-8">Appointments</h1>
 			<Tabs defaultValue="create" className="w-full">
 				<TabsList className="grid w-full grid-cols-2 mb-8">
-					<TabsTrigger value="create" className="text-lg">
+					<TabsTrigger value="create" className="text-base">
 						Create Appointment
 					</TabsTrigger>
-					<TabsTrigger value="view" className="text-lg">
+					<TabsTrigger value="view" className="text-base">
 						View Appointments
 					</TabsTrigger>
 				</TabsList>
@@ -168,7 +195,11 @@ export default function AppointmentsPage() {
 									{specialists.map((specialist) => (
 										<Card
 											key={specialist.id}
-											className="mb-4 cursor-pointer hover:bg-blue-50 transition-colors">
+											className={`mb-4 cursor-pointer transition-colors ${
+												selectedSpecialist === specialist.id
+													? "bg-blue-900 text-white"
+													: "hover:bg-blue-50"
+											}`}>
 											<CardHeader>
 												<div className="flex items-center space-x-4">
 													<Avatar className="h-12 w-12">
@@ -180,31 +211,52 @@ export default function AppointmentsPage() {
 														</AvatarFallback>
 													</Avatar>
 													<div>
-														<CardTitle className="text-lg text-blue-900">
+														<CardTitle
+															className={`text-lg ${
+																selectedSpecialist === specialist.id
+																	? "text-white"
+																	: "text-blue-900"
+															}`}>
 															{specialist.givenName} {specialist.fatherName}
 														</CardTitle>
-														<CardDescription>{specialist.type}</CardDescription>
+														<CardDescription
+															className={
+																selectedSpecialist === specialist.id
+																	? "text-blue-100"
+																	: "text-gray-600"
+															}>
+															{specialist.type}
+														</CardDescription>
 													</div>
 												</div>
 											</CardHeader>
 											<CardContent>
-												<div className="flex items-center space-x-2 text-sm text-gray-600">
+												<div
+													className={`flex items-center space-x-2 text-sm ${
+														selectedSpecialist === specialist.id
+															? "text-blue-100"
+															: "text-gray-600"
+													}`}>
 													<Phone className="h-4 w-4" />
 													<span>{specialist.mobileNumber}</span>
 												</div>
-												<div className="flex items-center space-x-2 text-sm text-gray-600 mt-1">
+												<div
+													className={`flex items-center space-x-2 text-sm mt-1 ${
+														selectedSpecialist === specialist.id
+															? "text-blue-100"
+															: "text-gray-600"
+													}`}>
 													<Mail className="h-4 w-4" />
 													<span>{specialist.email}</span>
 												</div>
 											</CardContent>
 											<CardFooter>
 												<Button
-													className="w-full"
-													variant={
+													className={`w-full ${
 														selectedSpecialist === specialist.id
-															? "default"
-															: "outline"
-													}
+															? "bg-white text-blue-900 hover:bg-blue-100"
+															: "bg-blue-900 text-white hover:bg-blue-800"
+													}`}
 													onClick={() => setSelectedSpecialist(specialist.id)}>
 													{selectedSpecialist === specialist.id
 														? "Selected"
@@ -222,27 +274,69 @@ export default function AppointmentsPage() {
 									Appointment Details
 								</CardTitle>
 								<CardDescription>
-									Select date, time, and add notes for your appointment
+									Select date and time for your appointment
 								</CardDescription>
 							</CardHeader>
 							<CardContent className="space-y-6">
 								<div className="space-y-2">
-									<Label htmlFor="date">Date</Label>
-									<Calendar
-										mode="single"
-										selected={selectedDate}
-										onSelect={setSelectedDate}
-										className="rounded-md border"
-									/>
+									<Label>Select Date</Label>
+									<div className="flex items-center justify-between mb-4">
+										<Button
+											variant="outline"
+											size="icon"
+											onClick={handlePreviousWeek}>
+											<ChevronLeft className="h-4 w-4" />
+										</Button>
+										<span className="font-semibold">
+											{format(currentWeek, "MMMM yyyy")}
+										</span>
+										<Button
+											variant="outline"
+											size="icon"
+											onClick={handleNextWeek}>
+											<ChevronRight className="h-4 w-4" />
+										</Button>
+									</div>
+									<div className="grid grid-cols-7 gap-2 mb-4">
+										{weekDays.map((day) => (
+											<Button
+												key={day.toISOString()}
+												variant={
+													isSameDay(day, selectedDate as any)
+														? "default"
+														: "outline"
+												}
+												className={`w-full ${
+													isSameDay(day, selectedDate as any)
+														? "bg-blue-900 text-white"
+														: ""
+												}`}
+												onClick={() => setSelectedDate(day)}>
+												<div className="text-center">
+													<div className="text-xs">{format(day, "EEE")}</div>
+													<div className="text-lg font-bold">
+														{format(day, "d")}
+													</div>
+												</div>
+											</Button>
+										))}
+									</div>
 								</div>
 								<div className="space-y-2">
-									<Label htmlFor="time">Time</Label>
-									<Input
-										id="time"
-										type="time"
-										value={selectedTime}
-										onChange={(e) => setSelectedTime(e.target.value)}
-									/>
+									<Label>Select Time</Label>
+									<div className="grid grid-cols-3 gap-2">
+										{timeSlots.map((time) => (
+											<Button
+												key={time}
+												variant={selectedTime === time ? "default" : "outline"}
+												className={`w-full ${
+													selectedTime === time ? "bg-blue-900 text-white" : ""
+												}`}
+												onClick={() => setSelectedTime(time)}>
+												{time}
+											</Button>
+										))}
+									</div>
 								</div>
 								<div className="space-y-2">
 									<Label htmlFor="notes">Notes (Optional)</Label>
@@ -256,7 +350,7 @@ export default function AppointmentsPage() {
 							</CardContent>
 							<CardFooter>
 								<Button
-									className="w-full text-lg"
+									className="w-full text-lg bg-blue-900 hover:bg-blue-800 text-white"
 									onClick={handleCreateAppointment}
 									disabled={
 										!selectedSpecialist || !selectedDate || !selectedTime

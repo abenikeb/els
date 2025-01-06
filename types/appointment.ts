@@ -3,10 +3,10 @@ export interface Specialist {
 	givenName: string;
 	fatherName: string;
 	mobileNumber: string;
-	createdAt: any;
-	updatedAt: any;
 	email: string;
 	type: string;
+	createdAt: string;
+	updatedAt: string;
 }
 
 export interface Appointment {
