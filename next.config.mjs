@@ -27,14 +27,30 @@ const nextConfig = {
 	// 	esmExternals: "loose",
 	// },
 	// swcMinify: true,
+
 	async rewrites() {
-		return [
+		console.log(API_URL);
+		
+		if (process.env.NODE_ENV === "development") {
+		  return [
 			{
-				source: "/api/v1/:path*",
-				destination: `${API_URL}/api/v1/:path*`,
+			  source: "/api/v1/:path*",
+			  destination: `${API_URL}/api/v1/:path*`,
 			},
-		];
-	},
+		  ];
+		} else if (process.env.NODE_ENV === "production") {
+		  return [
+			{
+			  source: "/api/v1/:path*",
+			  destination: `${API_URL}/api/v1/:path*`, // Use your production API URL here
+			},
+		  ];
+		}
+		
+		// Return an empty array for any other environment (like testing)
+		return [];
+	  }
+	  
 };
 
 export default nextConfig;
